@@ -1,0 +1,37 @@
+each character has:
+    a name
+    a description
+    a Refresh Value
+    a Fate Points Value
+    a list of aspects with:
+        1 high concept
+        1 trouble
+        n other aspects
+    a list of skills/approaches with relative values
+    a list of extra
+    a list of stunts
+    a list o consequences
+    a list of stress tracks
+
+definition of the datatypes
+    an ASPECT is a single line of text, so is the NAME
+    the DESCRIPTION is a Multiline text
+    the REFRESH and FATE POINTS RESERVE are both numbers
+
+    a SKILL is a couple composed by a line of text and its value similar to a variable
+    EXTRA and STUNTS are both structured datatypes
+        they have at least a title and a description, maybe a cost
+    
+    a stress track is a list of checkboxes that may be connected to a skills
+    a consequence is a single line text imput that may be connected to a stress track
+
+visual metaphor and target ux
+    each character sheet is presented as a playing card/tarot card
+    you can flip the card to access more data
+    the bigger fields (description,extra,stunts) can pop up on click or on hover
+    one face of the card contains an optional portrait
+    fate point are reppresented as "coins" on the card
+
+other notes
+    each character is saved as a single object
+    we may have in the end multiple objects full of character objects named accordingly to their character name

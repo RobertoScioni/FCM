@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+    this prototype will illustrate the structure of a single character sheet
+    the objective is to integrate all the elements in a readable, well documented format
+-->
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .character{
+                border: solid;
+                border-radius: 1rem;
+                padding: 0.5rem;
+                width:12rem;
+                max-width: 12rem;
+            }
+            .front{ /*the front class stilizes the most informative face of the character sheet/card*/
+                display: flexbox;
+                flex-flow: wrap;
+                background-color:grey;
+            }
+            .aspects{
+                background-color: aquamarine;
+                padding-left:1rem;
+                list-style-type: none;
+                border-style: solid;
+                border-radius:1rem;
+            }
+            .aspects>ul>li:hover{
+                background-color: rgb(175, 255, 227);
+            }
+            .skillcell{
+                background-color: hotpink;
+            }
+        </style>
+        <script>
+            let skills=["Athletics","Burglary","Contacts","Crafts","Deceive","Drive","Empathy","Fight","Investigate","Lore","Notice","Physique","Provoke","Rapport","Resources","Shoot","Stealth","Will"]
+            const skillPiramid=()=>{
+                const container=document.querySelector(".skills")
+                let item
+                for (let i = 0; i < skills.length; i++) {
+                    item=document.createElement("div")
+                    item.innerText=skills[i]
+                    item.classList.add("skillCell")
+                    container.appendChild(item)
+                }
+            }
+            const onload=()=>{
+                skillPiramid()
+            }
+        </script>
+    </head>
+    <body>
+        <section class="character">
+                <div class="characterName">Drusilla</div>
+                <div class="front">
+                        <ul class="aspects">
+                            <li>High Concept</li>
+                            <li>Trouble</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    <div class="skills">
+
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>

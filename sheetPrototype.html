@@ -9,10 +9,10 @@
         <style>
             .character{
                 border: solid;
-                border-radius: 1rem;
-                padding: 0.5rem;
-                width:12rem;
-                max-width: 12rem;
+                border-radius: 1ch;
+                padding: 1ch;
+                max-width: 48ch;
+                align-items: center;
             }
             .front{ /*the front class stilizes the most informative face of the character sheet/card*/
                 display: flexbox;
@@ -21,31 +21,78 @@
             }
             .aspects{
                 background-color: aquamarine;
-                padding-left:1rem;
+                padding-left:2ch;
+                padding-right: 2ch;
                 list-style-type: none;
                 border-style: solid;
-                border-radius:1rem;
+                border-radius:2ch;
             }
-            .aspects>ul>li:hover{
-                background-color: rgb(175, 255, 227);
+            .aspects>li:hover{
+                background-color: whitesmoke;
             }
-            .skillcell{
+            .skill:{
+                display: table;
+            }
+            .skillCell{
                 background-color: hotpink;
+                text-align: center;
+                min-width:10ch;
+                display:table-cell;
+                border-style:groove;
+                border-color: whitesmoke;
+                font-size: small;
+            }
+            .scaleCell{
+                min-width: 3ch;
+            }
+
+            .skillCell:hover{
+                background-color: whitesmoke;
+            }
+            .stunts{
+                width:20ch;
+                display: grid;
+                border:solid;
+                border-color:white;
+            }
+            .extra{
+                width:20ch;
+                display: grid;
+                border:solid;
+                border-color:white;
             }
         </style>
         <script>
             let skills=["Athletics","Burglary","Contacts","Crafts","Deceive","Drive","Empathy","Fight","Investigate","Lore","Notice","Physique","Provoke","Rapport","Resources","Shoot","Stealth","Will"]
+            let scale=["+5","+4","+3","+2","+1"]
             const skillPiramid=()=>{
                 const container=document.querySelector(".skills")
                 let item
-                for (let i = 0; i < skills.length; i++) {
+                let row
+                for (let i = 0; i < 5; i++) {
+                    row=document.createElement("div")
+                    let z=i+i-1<0?0:i+i-1
+                    //console.log("zeta",z)
                     item=document.createElement("div")
-                    item.innerText=skills[i]
-                    item.classList.add("skillCell")
-                    container.appendChild(item)
+                    item.innerText=scale[i]
+                    item.classList.add("scaleCell","skillCell")
+                    row.appendChild(item)
+                    for (let x = z; x<=z+i;x++) {
+                        item=document.createElement("div")
+                        item.innerText=skills[x]
+                        item.classList.add("skillCell")
+                        row.appendChild(item)
+                    }
+                    for (let y = i; y < 4; y++) {
+                        item=document.createElement("div")
+                        item.innerText="-"
+                        item.classList.add("skillCell")
+                        row.appendChild(item)
+                    }
+                    container.appendChild(row)
                 }
             }
-            const onload=()=>{
+            window.onload=()=>{
                 skillPiramid()
             }
         </script>
@@ -64,6 +111,8 @@
                     <div class="skills">
 
                     </div>
+                    <ul class="stunts"><li></li></ul>
+                    <ul class="extra"><li></li></ul>
                 </div>
         </section>
     </body>

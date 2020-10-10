@@ -7,20 +7,33 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            *{
+                box-sizing: border-box;
+            }
             .character{
                 border: solid;
                 border-radius: 1ch;
-                padding: 1ch;
-                max-width: 48ch;
+                padding: 0ch;
+                padding-top: 0.5ch;
+                max-width:fit-content;
                 align-items: center;
+                border-color: magenta;
+            }
+            .characterName{
+                background-color: blueviolet;
+                margin:0px !important;
             }
             .front{ /*the front class stilizes the most informative face of the character sheet/card*/
-                display: flexbox;
-                flex-flow: wrap;
+                /*display: flexbox;
+                flex-flow: wrap;*/
                 background-color:grey;
             }
             .aspects{
+                margin: 0ch;
+            }
+            .aspects>ul{
                 background-color: aquamarine;
+                margin:0;
                 padding-left:2ch;
                 padding-right: 2ch;
                 list-style-type: none;
@@ -30,7 +43,7 @@
             .aspects>li:hover{
                 background-color: whitesmoke;
             }
-            .skill:{
+            .skill{
                 display: table;
             }
             .skillCell{
@@ -43,23 +56,52 @@
                 font-size: small;
             }
             .scaleCell{
-                min-width: 3ch;
+                min-width: 4ch;
             }
 
             .skillCell:hover{
                 background-color: whitesmoke;
             }
-            .stunts{
-                width:20ch;
-                display: grid;
-                border:solid;
-                border-color:white;
+
+            .stunts, .extra{
+                float:right;
+                width:49%;
+                background-color: rgba(192, 192, 192, 0.747)
+                
             }
-            .extra{
-                width:20ch;
-                display: grid;
-                border:solid;
-                border-color:white;
+            .stunts>ul, .extra>ul{
+                padding:0;
+                margin:0;
+                list-style:none;
+                /*border:solid;*/
+                border-color:black;
+            }
+            .stunts>ul>li:hover, .extra>ul>li:hover{
+                background-color: whitesmoke;
+            }
+            .stress{
+                clear:both;
+            }
+            .caption{
+                margin: 0;
+            }
+            .stressTrack{
+                display:flex;
+                flex-wrap: nowrap;
+            }
+
+            .stressTrack>.caption{
+                min-width:8ch;
+            }
+            .stressBox{
+                background-color:rgb(145, 145, 145);
+                min-width: 3ch;
+                /*height: 1ch;*/
+                border:inset;
+                display:block;
+            }
+            .stressBox:hover{
+                background-color: whitesmoke;
             }
         </style>
         <script>
@@ -98,22 +140,45 @@
         </script>
     </head>
     <body>
-        <section class="character">
-                <div class="characterName">Drusilla</div>
+        <div class="character">
+                <h2 class="characterName">Drusilla</h2>
                 <div class="front">
-                        <ul class="aspects">
+                    <div name="aspects" class="aspects">
+                        <h3 class="caption">Aspects</h3>
+                        <ul>
                             <li>High Concept</li>
                             <li>Trouble</li>
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
+                        </div>
                         </ul>
-                    <div class="skills">
-
+                        <div class="skills"><h3 class="caption">Skills</h3></div>
+                        <div class="stunts">
+                            <h3 class="caption">Stunts</h3>
+                            <ul>
+                                <li>one</li>
+                                <li>two</li>
+                                <li>tree</li>
+                            </ul>
+                        </div>
+                        <div class="extra">
+                            <h3 class="caption">Extra</h3>
+                            <ul>
+                                <li>one</li>
+                                <li>two</li>
+                                <li>tree</li>
+                            </ul>
+                        </div>
+                    <div class="stress">
+                        <div class="stressTrack">
+                            <h3 class="caption">Physical</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
+                        </div>
+                        <div class="stressTrack">
+                            <h3 class="caption">Mental</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
+                        </div>
                     </div>
-                    <ul class="stunts"><li></li></ul>
-                    <ul class="extra"><li></li></ul>
                 </div>
-        </section>
+        </div>
     </body>
 </html>

@@ -1,8 +1,8 @@
 const character={
-    Aspects:[];
-    Skills[];
-    Stunts:[];
-    Extra:[];
+    Aspects:[],
+    Skills:[],
+    Stunts:[],
+    Extra:[]
 }
 
 const printSheet=()=>{

@@ -31,7 +31,7 @@
             .aspects{
                 margin: 0ch;
             }
-            .aspects>ul{
+            .aspects>ul, .consequences>ul{
                 background-color: aquamarine;
                 margin:0;
                 padding-left:2ch;
@@ -64,7 +64,7 @@
             }
 
             .stunts, .extra{
-                float:right;
+                float:left;
                 width:49%;
                 background-color: rgba(192, 192, 192, 0.747)
                 
@@ -78,9 +78,6 @@
             }
             .stunts>ul>li:hover, .extra>ul>li:hover{
                 background-color: whitesmoke;
-            }
-            .stress{
-                clear:both;
             }
             .caption{
                 margin: 0;
@@ -103,6 +100,17 @@
             .stressBox:hover{
                 background-color: whitesmoke;
             }
+            .stress{
+                width: 50%;
+                float:left;
+                clear:both;
+            }
+
+            .consequences{
+                width: 50%;
+                margin:0;
+            }
+
         </style>
         <script>
             let skills=["Athletics","Burglary","Contacts","Crafts","Deceive","Drive","Empathy","Fight","Investigate","Lore","Notice","Physique","Provoke","Rapport","Resources","Shoot","Stealth","Will"]
@@ -170,13 +178,24 @@
                                 <li>tree</li>
                             </ul>
                         </div>
+                    
                     <div class="stress">
+                        <h3 class="caption">Stress</h3>
                         <div class="stressTrack">
                             <h3 class="caption">Physical</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
                         </div>
                         <div class="stressTrack">
                             <h3 class="caption">Mental</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
                         </div>
+                    </div>
+                    <div class="consequences">
+                        <h3 class="caption">Consequences</h3>
+                        <ul>
+                            <li>mild</li>
+                            <li>mild</li>
+                            <li>moderate</li>
+                            <li>severe</li>
+                        </ul>
                     </div>
                 </div>
         </div>

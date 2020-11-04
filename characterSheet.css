@@ -1,0 +1,49 @@
+body, #skeleton{
+    width:100vw;
+    height: 100vh;
+    margin:0;
+    padding:0;
+}
+.row{
+    margin:0;
+}
+.col{
+    margin:0;
+    padding:0;
+}
+.banner{
+    height: 10vh;
+    width: 100vw;
+    background-color: darkgray;
+}
+
+.container .container{
+    height: 300px;
+}
+
+.dashboard{
+    /*height: 90vh;*/
+    width: 100vw;
+    background-color: gray;
+}
+.characters{
+    margin-top: 0;
+    min-height:100%;
+    /*width:20vw;
+    max-width:20vw;
+    min-height:85vh ;
+    float:left;*/
+    background-color: violet;
+    border-radius:1rem;
+    padding-left:0.5rem;
+}
+#banner{
+    background-color: rosybrown;
+}
+
+
+.dashboard{
+    height:100%;
+    background-color: grey;
+    border-radius:1rem;
+}

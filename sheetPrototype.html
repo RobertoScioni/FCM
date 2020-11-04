@@ -1,203 +1,86 @@
-<!DOCTYPE html>
-<!--
-    this prototype will illustrate the structure of a single character sheet
-    the objective is to integrate all the elements in a readable, well documented format
--->
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            *{
-                box-sizing: border-box;
-            }
-            .character{
-                border: solid;
-                border-radius: 1ch;
-                padding: 0ch;
-                padding-top: 0.5ch;
-                max-width:fit-content;
-                align-items: center;
-                border-color: magenta;
-            }
-            .characterName{
-                background-color: blueviolet;
-                margin:0px !important;
-            }
-            .front{ /*the front class stilizes the most informative face of the character sheet/card*/
-                /*display: flexbox;
-                flex-flow: wrap;*/
-                background-color:grey;
-            }
-            .aspects{
-                margin: 0ch;
-            }
-            .aspects>ul, .consequences>ul{
-                background-color: aquamarine;
-                margin:0;
-                padding-left:2ch;
-                padding-right: 2ch;
-                list-style-type: none;
-                border-style: solid;
-                border-radius:2ch;
-            }
-            .aspects>li:hover{
-                background-color: whitesmoke;
-            }
-            .skill{
-                display: table;
-            }
-            .skillCell{
-                background-color: hotpink;
-                text-align: center;
-                min-width:10ch;
-                display:table-cell;
-                border-style:groove;
-                border-color: whitesmoke;
-                font-size: small;
-            }
-            .scaleCell{
-                min-width: 4ch;
-            }
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            .skillCell:hover{
-                background-color: whitesmoke;
-            }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-            .stunts, .extra{
-                float:left;
-                width:49%;
-                background-color: rgba(192, 192, 192, 0.747)
-                
-            }
-            .stunts>ul, .extra>ul{
-                padding:0;
-                margin:0;
-                list-style:none;
-                /*border:solid;*/
-                border-color:black;
-            }
-            .stunts>ul>li:hover, .extra>ul>li:hover{
-                background-color: whitesmoke;
-            }
-            .caption{
-                margin: 0;
-            }
-            .stressTrack{
-                display:flex;
-                flex-wrap: nowrap;
-            }
-
-            .stressTrack>.caption{
-                min-width:8ch;
-            }
-            .stressBox{
-                background-color:rgb(145, 145, 145);
-                min-width: 3ch;
-                /*height: 1ch;*/
-                border:inset;
-                display:block;
-            }
-            .stressBox:hover{
-                background-color: whitesmoke;
-            }
-            .stress{
-                width: 50%;
-                float:left;
-                clear:both;
-            }
-
-            .consequences{
-                width: 50%;
-                margin:0;
-            }
-
-        </style>
-        <script>
-            let skills=["Athletics","Burglary","Contacts","Crafts","Deceive","Drive","Empathy","Fight","Investigate","Lore","Notice","Physique","Provoke","Rapport","Resources","Shoot","Stealth","Will"]
-            let scale=["+5","+4","+3","+2","+1"]
-            const skillPiramid=()=>{
-                const container=document.querySelector(".skills")
-                let item
-                let row
-                for (let i = 0; i < 5; i++) {
-                    row=document.createElement("div")
-                    let z=i+i-1<0?0:i+i-1
-                    //console.log("zeta",z)
-                    item=document.createElement("div")
-                    item.innerText=scale[i]
-                    item.classList.add("scaleCell","skillCell")
-                    row.appendChild(item)
-                    for (let x = z; x<=z+i;x++) {
-                        item=document.createElement("div")
-                        item.innerText=skills[x]
-                        item.classList.add("skillCell")
-                        row.appendChild(item)
-                    }
-                    for (let y = i; y < 4; y++) {
-                        item=document.createElement("div")
-                        item.innerText="-"
-                        item.classList.add("skillCell")
-                        row.appendChild(item)
-                    }
-                    container.appendChild(row)
-                }
-            }
-            window.onload=()=>{
-                skillPiramid()
-            }
-        </script>
-    </head>
-    <body>
-        <div class="character">
-                <h2 class="characterName">Drusilla</h2>
-                <div class="front">
-                    <div name="aspects" class="aspects">
-                        <h3 class="caption">Aspects</h3>
-                        <ul>
-                            <li>High Concept</li>
-                            <li>Trouble</li>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                        </div>
-                        </ul>
-                        <div class="skills"><h3 class="caption">Skills</h3></div>
-                        <div class="stunts">
-                            <h3 class="caption">Stunts</h3>
-                            <ul>
-                                <li>one</li>
-                                <li>two</li>
-                                <li>tree</li>
-                            </ul>
-                        </div>
-                        <div class="extra">
-                            <h3 class="caption">Extra</h3>
-                            <ul>
-                                <li>one</li>
-                                <li>two</li>
-                                <li>tree</li>
-                            </ul>
-                        </div>
-                    
-                    <div class="stress">
-                        <h3 class="caption">Stress</h3>
-                        <div class="stressTrack">
-                            <h3 class="caption">Physical</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
-                        </div>
-                        <div class="stressTrack">
-                            <h3 class="caption">Mental</h3><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div><div class="stressBox"></div>
-                        </div>
+    <!--My CSS-->
+    <link rel="stylesheet" href="characterSheet.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--Grid System-->
+        <div id="skeleton" class="container">
+            <!--header-->
+                <div class="row banner">
+                    <div id="banner" class="col col-12">
+                        <!--start of navbar template-->
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <a class="navbar-brand" href="#">Navbar</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                    </li>
+                                </ul>
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                                </div>
+                            </nav>
+                        <!--end of navbar template-->
                     </div>
-                    <div class="consequences">
-                        <h3 class="caption">Consequences</h3>
-                        <ul>
-                            <li>mild</li>
-                            <li>mild</li>
-                            <li>moderate</li>
-                            <li>severe</li>
-                        </ul>
+                    <div id="breadcrumbs" class="col col-12">
+                        <!--Start of BreadCrumbTemplate-->
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Play</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gm</li>
+                                </ol>
+                            </nav>
+                        <!--End of BreadCrumbTemplate-->
+                    </div>
+                </div>
+            <!--PlayArea-->
+                <div class="row dashboard">
+                    <!--nested grid-->
+                    <div id="dashboard" class="container">
+                        <div class="row">
+                            <div class="characters col col-4">zero</div>
+                        </div>
+
                     </div>
                 </div>
         </div>
-    </body>
+  </body>
 </html>

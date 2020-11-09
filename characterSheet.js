@@ -16,9 +16,9 @@ const printSheet = (character) => {
 	const char = document.querySelector(".character-template").cloneNode(true)
 	char.classList.remove("character-template")
 	char.querySelector(".name").innerText = character.name
-	char.aspects.forEach((Aspect) => {
+	character.aspects.forEach((Aspect) => {
 		let aspect = document.createElement("li")
-		aspect.classList.add("list-group-item")
+		aspect.classList.add("list-group-item", "p-0")
 		aspect.innerText = Aspect
 		char.querySelector(".aspects").appendChild(aspect)
 	})

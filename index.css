@@ -2,3 +2,9 @@
 	background-color: rgba(83, 32, 79, 0.616);
 	color: bisque;
 }
+.aspects :first-child {
+	background-color: cadetblue;
+}
+.aspects :nth-child(2) {
+	background-color: red;
+}

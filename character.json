@@ -1,0 +1,34 @@
+{
+	"Test": {
+		"refresh": 3,
+		"fatePoints": 3,
+		"aspects": {
+			"HighConcept": "master Thief",
+			"Trouble": "cannot let treasure in evil hands",
+			"creation1": "own my life to Akram",
+			"creation2": "traitor of The guild",
+			"creation3": "Marcus of the guild owes me one"
+		},
+		"skills": {
+			"Crime": 4,
+			"stealt": 3,
+			"melee": 3,
+			"ranged": 2,
+			"investigation": 2,
+			"traps": 2
+		},
+		"stunts": {
+			"Always prepared": {
+				"description": "once per scene can discover an advantage for free",
+				"cost": "1refresh point"
+			}
+		},
+		"extra": {
+			"poison": {
+				"permission": "a value of crime of at leat 3",
+				"cost": "1 refresh",
+				"description": "on your first melee or ranged attack you can inflict the aspect poisoned to an enemy"
+			}
+		}
+	}
+}

@@ -3,13 +3,13 @@
 		"name": "Test",
 		"refresh": 3,
 		"fatePoints": 3,
-		"aspects": {
-			"HighConcept": "master Thief",
-			"Trouble": "cannot let treasure in evil hands",
-			"creation1": "own my life to Akram",
-			"creation2": "traitor of The guild",
-			"creation3": "Marcus of the guild owes me one"
-		},
+		"aspects": [
+			"master Thief",
+			"cannot let treasure in evil hands",
+			"own my life to Akram",
+			"traitor of The guild",
+			"Marcus of the guild owes me one"
+		],
 		"skills": {
 			"Crime": 4,
 			"stealt": 3,
